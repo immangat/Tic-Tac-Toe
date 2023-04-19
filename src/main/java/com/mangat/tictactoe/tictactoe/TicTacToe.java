@@ -14,6 +14,7 @@ public class TicTacToe {
    * Constructs the TicTacToe Object
    */
   public TicTacToe(){
+    playArea = new int[3][3];
 
   }
 
@@ -44,5 +45,17 @@ public class TicTacToe {
    */
   public void setSpecficBox(int x, int y, int value){
     playArea[x][y] = value;
+  }
+
+
+  public String toString(){
+    StringBuilder output = new StringBuilder();
+    for (int[] ints : playArea) {
+      for (int j = 0; j < playArea[0].length; j++) {
+        output.append(ints[j] == 0 ? "O" : "X");
+      }
+      output.append("\n");
+    }
+    return output.toString();
   }
 }
