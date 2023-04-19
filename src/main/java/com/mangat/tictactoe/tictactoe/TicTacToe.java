@@ -1,7 +1,9 @@
 package com.mangat.tictactoe.tictactoe;
 
 
-
+/**
+ * The Class manages the tictactoe on the screen.
+ */
 public class TicTacToe {
 
   /**
@@ -48,6 +50,10 @@ public class TicTacToe {
   }
 
 
+  /***
+   * Gives the String representation of the 2D Array.
+   * @return String
+   */
   public String toString(){
     StringBuilder output = new StringBuilder();
     for (int[] ints : playArea) {
