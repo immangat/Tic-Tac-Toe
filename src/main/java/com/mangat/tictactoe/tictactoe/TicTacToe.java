@@ -260,6 +260,12 @@ public class TicTacToe {
   }
 
 
+  /**
+   * Rests the PlayArea to begin a new Game.
+   */
+  public void resetPlayState(){
+    playArea = new Integer[3][3];
+  }
   /***
    * Gives the String representation of the 2D Array.
    * @return String

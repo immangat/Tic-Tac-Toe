@@ -10,15 +10,15 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="314.0" layoutX="26.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="314.0" />
       <Line endX="-88.0" endY="232.0" layoutX="442.0" layoutY="119.0" startX="-88.0" startY="-75.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="308.0" layoutX="367.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="219.0" />
-      <Button fx:id="button10" layoutX="57.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton10" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button00" layoutX="57.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton00" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button01" layoutX="150.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton01" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button02" layoutX="249.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton02" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button11" layoutX="150.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton11" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button12" layoutX="249.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton12" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button21" layoutX="150.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton21" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button20" layoutX="57.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton20" prefHeight="62.0" prefWidth="66.0" text="Button" />
-      <Button fx:id="button22" layoutX="249.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton22" prefHeight="62.0" prefWidth="66.0" text="Button" />
+      <Button fx:id="button10" layoutX="57.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton10" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button00" layoutX="57.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton00" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button01" layoutX="150.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton01" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button02" layoutX="249.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#changeStateButton02" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button11" layoutX="150.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton11" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button12" layoutX="249.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#changeStateButton12" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button21" layoutX="150.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton21" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button20" layoutX="57.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton20" prefHeight="62.0" prefWidth="66.0" />
+      <Button fx:id="button22" layoutX="249.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#changeStateButton22" prefHeight="62.0" prefWidth="66.0" />
       <Button layoutX="435.0" layoutY="132.0" mnemonicParsing="false" onAction="#printState" text="Print State" />
       <Button layoutX="428.0" layoutY="225.0" mnemonicParsing="false" onAction="#checkWhoWon" text="Check Who Won" />
    </children>
