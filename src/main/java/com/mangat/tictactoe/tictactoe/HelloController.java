@@ -7,6 +7,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
@@ -71,6 +73,7 @@ public class HelloController {
       button00.setText("X");
       tic.setSpecficBox(0, 0, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -83,6 +86,7 @@ public class HelloController {
       button01.setText("X");
       tic.setSpecficBox(0, 1, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -95,6 +99,7 @@ public class HelloController {
       button02.setText("X");
       tic.setSpecficBox(0, 2, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -107,6 +112,7 @@ public class HelloController {
       button10.setText("X");
       tic.setSpecficBox(1, 0, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -119,6 +125,7 @@ public class HelloController {
       button11.setText("X");
       tic.setSpecficBox(1, 1, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -131,6 +138,7 @@ public class HelloController {
       button12.setText("X");
       tic.setSpecficBox(1, 2, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -143,6 +151,7 @@ public class HelloController {
       button20.setText("X");
       tic.setSpecficBox(2, 0, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -155,6 +164,7 @@ public class HelloController {
       button21.setText("X");
       tic.setSpecficBox(2, 1, 1);
     }
+    checkWhoWon(e);
 
   }
 
@@ -167,11 +177,12 @@ public class HelloController {
       button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
+    checkWhoWon(e);
 
   }
 
   @FXML
-  protected void checkWhoWon(ActionEvent e){
+  protected void checkWhoWon(MouseEvent e){
     String whoWon = tic.checkState();
     if(whoWon.equals("X") || whoWon.equals("O")){
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -185,8 +196,7 @@ public class HelloController {
       Optional<ButtonType> result = alert.showAndWait();
       if (result.isPresent()) {
         if (result.get() == resetButtonType) {
-          //TODO: Add reset functionality;
-          throw new UnsupportedOperationException("not implemented");
+          resetPlayArea();
         } else if (result.get() == quitButtonType) {
           quitGame(e);
         }
@@ -195,8 +205,16 @@ public class HelloController {
     }
   }
 
+  private void resetPlayArea() {
+    tic.resetPlayState();
+    Button[] buttons = {button00, button10, button20, button01, button11, button21, button02, button12, button22};
+    for (Button button : buttons) {
+      button.setText("");
+    }
+  }
+
   @FXML
-  protected void quitGame(ActionEvent e){
+  protected void quitGame(MouseEvent e){
     Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
     stage.close();
   }
