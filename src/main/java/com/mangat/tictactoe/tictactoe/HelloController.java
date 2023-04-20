@@ -147,9 +147,15 @@ public class HelloController {
       button22.setText("0");
       tic.setSpecficBox(2, 2, 0);
     } else if (e.getButton() == MouseButton.SECONDARY) {
-      button21.setText("X");
+      button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
+  }
+
+  @FXML
+  protected void checkWhoWon(ActionEvent e){
+    //TODO: Add logic to see who has won the game. x or y
+    throw new UnsupportedOperationException("Not yet implemented");
   }
 
 
