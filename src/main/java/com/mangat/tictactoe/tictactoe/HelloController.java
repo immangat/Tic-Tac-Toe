@@ -62,6 +62,7 @@ public class HelloController {
       button00.setText("X");
       tic.setSpecficBox(0, 0, 1);
     }
+
   }
 
   @FXML
@@ -73,6 +74,7 @@ public class HelloController {
       button01.setText("X");
       tic.setSpecficBox(0, 1, 1);
     }
+
   }
 
   @FXML
@@ -84,6 +86,7 @@ public class HelloController {
       button02.setText("X");
       tic.setSpecficBox(0, 2, 1);
     }
+
   }
 
   @FXML
@@ -95,6 +98,7 @@ public class HelloController {
       button10.setText("X");
       tic.setSpecficBox(1, 0, 1);
     }
+
   }
 
   @FXML
@@ -106,6 +110,7 @@ public class HelloController {
       button11.setText("X");
       tic.setSpecficBox(1, 1, 1);
     }
+
   }
 
   @FXML
@@ -117,6 +122,7 @@ public class HelloController {
       button12.setText("X");
       tic.setSpecficBox(1, 2, 1);
     }
+
   }
 
   @FXML
@@ -128,6 +134,7 @@ public class HelloController {
       button20.setText("X");
       tic.setSpecficBox(2, 0, 1);
     }
+
   }
 
   @FXML
@@ -139,6 +146,7 @@ public class HelloController {
       button21.setText("X");
       tic.setSpecficBox(2, 1, 1);
     }
+
   }
 
   @FXML
@@ -147,9 +155,15 @@ public class HelloController {
       button22.setText("0");
       tic.setSpecficBox(2, 2, 0);
     } else if (e.getButton() == MouseButton.SECONDARY) {
-      button21.setText("X");
+      button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
+
+  }
+
+  @FXML
+  protected void checkWhoWon(ActionEvent e){
+    System.out.println(tic.checkState());
   }
 
 
