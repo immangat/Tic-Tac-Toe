@@ -2,16 +2,25 @@ package com.mangat.tictactoe.tictactoe;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Box;
+import javafx.stage.Stage;
+
+import javax.accessibility.AccessibleIcon;
+import javax.swing.*;
+import java.util.Optional;
 
 public class HelloController {
   @FXML
   private Label welcomeText;
+
+
+  @FXML
+  private Button quitButton;
 
   @FXML
   private Button button00;
@@ -163,13 +172,39 @@ public class HelloController {
 
   @FXML
   protected void checkWhoWon(ActionEvent e){
-    System.out.println(tic.checkState());
+    String whoWon = tic.checkState();
+    if(whoWon.equals("X") || whoWon.equals("O")){
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Information Dialog");
+      alert.setHeaderText(null);
+      alert.setContentText(whoWon + " has Won. Do you Want To continue or reset?");
+      ButtonType resetButtonType = new ButtonType("Reset", ButtonBar.ButtonData.LEFT);
+      ButtonType quitButtonType = new ButtonType("Quit", ButtonBar.ButtonData.RIGHT);
+      alert.getButtonTypes().setAll(resetButtonType, quitButtonType);
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.isPresent()) {
+        if (result.get() == resetButtonType) {
+          //TODO: Add reset functionality;
+          throw new UnsupportedOperationException("not implemented");
+        } else if (result.get() == quitButtonType) {
+          quitGame(e);
+        }
+      }
+
+    }
   }
 
+  @FXML
+  protected void quitGame(ActionEvent e){
+    Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    stage.close();
+  }
 
   @FXML
   protected void printState(ActionEvent e) {
-    System.out.println(tic);
+
+     System.out.println(tic);
   }
 
 
