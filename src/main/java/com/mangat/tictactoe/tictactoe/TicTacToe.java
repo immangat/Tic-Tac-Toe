@@ -65,18 +65,25 @@ public class TicTacToe {
           outputOfCheckMethod = checkPattern0();
           break;
         case 1:
+          outputOfCheckMethod = checkPattern1();
           break;
         case 2:
+          outputOfCheckMethod = checkPattern2();
           break;
         case 3:
+          outputOfCheckMethod = checkPattern3();
           break;
         case 4:
+          outputOfCheckMethod = checkPattern4();
           break;
         case 5:
+          outputOfCheckMethod = checkPattern5();
           break;
         case 6:
+          outputOfCheckMethod = checkPattern6();
           break;
         default:
+          outputOfCheckMethod = checkPattern7();
       }
       if(!outputOfCheckMethod.equals("none")){
         winningPatternFound = true;
@@ -84,30 +91,171 @@ public class TicTacToe {
       whichPattern++;
     }
 
-
     return outputOfCheckMethod;
+  }
+
+  private String checkPattern7() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(int i = 0; i < 3; i++){
+      Integer temp = playArea[2 - i][i];
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern6() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(int i = 0; i < 3; i++){
+      Integer temp = playArea[i][i];
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern5() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(int i = 0; i < 3; i++){
+      Integer temp = playArea[i][2];
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern4() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(int i = 0; i < 3; i++){
+      Integer temp = playArea[i][1];
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern3() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(int i = 0; i < 3; i++){
+        Integer temp = playArea[i][0];
+        if(temp == null){
+          return output;
+        }
+        if (temp == 0) {
+          oCount++;
+        } else {
+          xCount++;
+        }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern2() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(Integer temp : playArea[2]){
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
+  }
+
+  private String checkPattern1() {
+    String output = "none";
+    int xCount = 0;
+    int oCount = 0;
+    for(Integer temp : playArea[1]){
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
+      }
+    }
+    if(xCount == 3 || oCount == 3){
+      output = xCount == 3 ? "X" : "O";
+    }
+    return output;
   }
 
   private String checkPattern0() {
     String output = "none";
     int xCount = 0;
     int oCount = 0;
-    for(int temp : playArea[0]){
-      switch(temp){
-        case 0:
-          oCount++;
-          break;
-        case 1:
-          xCount++;
-          break;
-        default:
-          return output;
+    for(Integer temp : playArea[0]){
+      if(temp == null){
+        return output;
+      }
+      if (temp == 0) {
+        oCount++;
+      } else {
+        xCount++;
       }
     }
     if(xCount == 3 || oCount == 3){
       output = xCount == 3 ? "X" : "O";
     }
-
     return output;
   }
 
@@ -120,7 +268,11 @@ public class TicTacToe {
     StringBuilder output = new StringBuilder();
     for (Integer[] ints : playArea) {
       for (int j = 0; j < playArea[0].length; j++) {
-        output.append(ints[j] == 0 ? "O" : "X");
+        if(ints[j] == null){
+          output.append("null");
+        } else{
+          output.append(ints[j] == 0 ? "O" : "X");
+        }
       }
       output.append("\n");
     }
