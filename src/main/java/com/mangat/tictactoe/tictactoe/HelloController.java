@@ -248,7 +248,7 @@ public class HelloController {
   private void enableButton(Button button){
     button.setDisable(false);
     button.setText("");
-    button.setDefaultButton(true);
+    button.setStyle("-fx-background-color: #F0F0F0; -fx-border-color: #C0C0C0; -fx-font-size: 14px;");
   }
 
   private void resetPlayArea() {
