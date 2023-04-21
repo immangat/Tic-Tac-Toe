@@ -73,6 +73,8 @@ public class HelloController {
       button00.setText("X");
       tic.setSpecficBox(0, 0, 1);
     }
+
+    button00.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -86,6 +88,7 @@ public class HelloController {
       button01.setText("X");
       tic.setSpecficBox(0, 1, 1);
     }
+    button01.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -99,6 +102,8 @@ public class HelloController {
       button02.setText("X");
       tic.setSpecficBox(0, 2, 1);
     }
+
+    button02.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -112,6 +117,8 @@ public class HelloController {
       button10.setText("X");
       tic.setSpecficBox(1, 0, 1);
     }
+
+    button10.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -125,6 +132,8 @@ public class HelloController {
       button11.setText("X");
       tic.setSpecficBox(1, 1, 1);
     }
+
+    button11.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -138,6 +147,8 @@ public class HelloController {
       button12.setText("X");
       tic.setSpecficBox(1, 2, 1);
     }
+
+    button12.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -151,6 +162,8 @@ public class HelloController {
       button20.setText("X");
       tic.setSpecficBox(2, 0, 1);
     }
+
+    button20.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -164,8 +177,9 @@ public class HelloController {
       button21.setText("X");
       tic.setSpecficBox(2, 1, 1);
     }
-    checkWhoWon(e);
 
+    button21.setDisable(true);
+    checkWhoWon(e);
   }
 
   @FXML
@@ -177,6 +191,7 @@ public class HelloController {
       button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
+    button22.setDisable(true);
     checkWhoWon(e);
 
   }
@@ -203,12 +218,32 @@ public class HelloController {
       }
 
     }
+    if(whoWon.equals("tie")){
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Information Dialog");
+      alert.setHeaderText(null);
+      alert.setContentText("It is tie. Do you Want To continue or reset?");
+      ButtonType resetButtonType = new ButtonType("Reset", ButtonBar.ButtonData.LEFT);
+      ButtonType quitButtonType = new ButtonType("Quit", ButtonBar.ButtonData.RIGHT);
+      alert.getButtonTypes().setAll(resetButtonType, quitButtonType);
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.isPresent()) {
+        if (result.get() == resetButtonType) {
+          resetPlayArea();
+        } else if (result.get() == quitButtonType) {
+          quitGame(e);
+        }
+      }
+
+    }
   }
 
   private void resetPlayArea() {
     tic.resetPlayState();
     Button[] buttons = {button00, button10, button20, button01, button11, button21, button02, button12, button22};
     for (Button button : buttons) {
+      button.setDisable(false);
       button.setText("");
     }
   }
