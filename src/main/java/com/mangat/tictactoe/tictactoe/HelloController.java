@@ -9,6 +9,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
@@ -74,7 +75,7 @@ public class HelloController {
       tic.setSpecficBox(0, 0, 1);
     }
 
-    button00.setDisable(true);
+    disableButton(button00);
     checkWhoWon(e);
 
   }
@@ -88,7 +89,7 @@ public class HelloController {
       button01.setText("X");
       tic.setSpecficBox(0, 1, 1);
     }
-    button01.setDisable(true);
+    disableButton(button01);
     checkWhoWon(e);
 
   }
@@ -103,7 +104,7 @@ public class HelloController {
       tic.setSpecficBox(0, 2, 1);
     }
 
-    button02.setDisable(true);
+    disableButton(button02);;
     checkWhoWon(e);
 
   }
@@ -118,7 +119,7 @@ public class HelloController {
       tic.setSpecficBox(1, 0, 1);
     }
 
-    button10.setDisable(true);
+    disableButton(button10);
     checkWhoWon(e);
 
   }
@@ -133,7 +134,7 @@ public class HelloController {
       tic.setSpecficBox(1, 1, 1);
     }
 
-    button11.setDisable(true);
+    disableButton(button11);
     checkWhoWon(e);
 
   }
@@ -148,7 +149,7 @@ public class HelloController {
       tic.setSpecficBox(1, 2, 1);
     }
 
-    button12.setDisable(true);
+    disableButton(button12);
     checkWhoWon(e);
 
   }
@@ -163,7 +164,7 @@ public class HelloController {
       tic.setSpecficBox(2, 0, 1);
     }
 
-    button20.setDisable(true);
+    disableButton(button20);
     checkWhoWon(e);
 
   }
@@ -178,7 +179,7 @@ public class HelloController {
       tic.setSpecficBox(2, 1, 1);
     }
 
-    button21.setDisable(true);
+    disableButton(button21);
     checkWhoWon(e);
   }
 
@@ -191,7 +192,7 @@ public class HelloController {
       button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
-    button22.setDisable(true);
+    disableButton(button22);
     checkWhoWon(e);
 
   }
@@ -239,12 +240,22 @@ public class HelloController {
     }
   }
 
+  private void disableButton(Button button){
+    button.setStyle("-fx-background-color: BLACK; -fx-border-color: #C0C0C0; -fx-font-size: 14px;");
+    button.setDisable(true);
+  }
+
+  private void enableButton(Button button){
+    button.setDisable(false);
+    button.setText("");
+    button.setDefaultButton(true);
+  }
+
   private void resetPlayArea() {
     tic.resetPlayState();
     Button[] buttons = {button00, button10, button20, button01, button11, button21, button02, button12, button22};
     for (Button button : buttons) {
-      button.setDisable(false);
-      button.setText("");
+      enableButton(button);
     }
   }
 
