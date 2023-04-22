@@ -9,6 +9,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
@@ -73,6 +74,8 @@ public class HelloController {
       button00.setText("X");
       tic.setSpecficBox(0, 0, 1);
     }
+
+    disableButton(button00);
     checkWhoWon(e);
 
   }
@@ -86,6 +89,7 @@ public class HelloController {
       button01.setText("X");
       tic.setSpecficBox(0, 1, 1);
     }
+    disableButton(button01);
     checkWhoWon(e);
 
   }
@@ -99,6 +103,8 @@ public class HelloController {
       button02.setText("X");
       tic.setSpecficBox(0, 2, 1);
     }
+
+    disableButton(button02);;
     checkWhoWon(e);
 
   }
@@ -112,6 +118,8 @@ public class HelloController {
       button10.setText("X");
       tic.setSpecficBox(1, 0, 1);
     }
+
+    disableButton(button10);
     checkWhoWon(e);
 
   }
@@ -125,6 +133,8 @@ public class HelloController {
       button11.setText("X");
       tic.setSpecficBox(1, 1, 1);
     }
+
+    disableButton(button11);
     checkWhoWon(e);
 
   }
@@ -138,6 +148,8 @@ public class HelloController {
       button12.setText("X");
       tic.setSpecficBox(1, 2, 1);
     }
+
+    disableButton(button12);
     checkWhoWon(e);
 
   }
@@ -151,6 +163,8 @@ public class HelloController {
       button20.setText("X");
       tic.setSpecficBox(2, 0, 1);
     }
+
+    disableButton(button20);
     checkWhoWon(e);
 
   }
@@ -164,8 +178,9 @@ public class HelloController {
       button21.setText("X");
       tic.setSpecficBox(2, 1, 1);
     }
-    checkWhoWon(e);
 
+    disableButton(button21);
+    checkWhoWon(e);
   }
 
   @FXML
@@ -177,6 +192,7 @@ public class HelloController {
       button22.setText("X");
       tic.setSpecficBox(2, 2, 1);
     }
+    disableButton(button22);
     checkWhoWon(e);
 
   }
@@ -203,13 +219,43 @@ public class HelloController {
       }
 
     }
+    if(whoWon.equals("tie")){
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Information Dialog");
+      alert.setHeaderText(null);
+      alert.setContentText("It is tie. Do you Want To continue or reset?");
+      ButtonType resetButtonType = new ButtonType("Reset", ButtonBar.ButtonData.LEFT);
+      ButtonType quitButtonType = new ButtonType("Quit", ButtonBar.ButtonData.RIGHT);
+      alert.getButtonTypes().setAll(resetButtonType, quitButtonType);
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.isPresent()) {
+        if (result.get() == resetButtonType) {
+          resetPlayArea();
+        } else if (result.get() == quitButtonType) {
+          quitGame(e);
+        }
+      }
+
+    }
+  }
+
+  private void disableButton(Button button){
+    button.setStyle("-fx-background-color: BLACK; -fx-border-color: #C0C0C0; -fx-font-size: 14px;");
+    button.setDisable(true);
+  }
+
+  private void enableButton(Button button){
+    button.setDisable(false);
+    button.setText("");
+    button.setStyle("-fx-background-color: #F0F0F0; -fx-border-color: #C0C0C0; -fx-font-size: 14px;");
   }
 
   private void resetPlayArea() {
     tic.resetPlayState();
     Button[] buttons = {button00, button10, button20, button01, button11, button21, button02, button12, button22};
     for (Button button : buttons) {
-      button.setText("");
+      enableButton(button);
     }
   }
 

@@ -12,6 +12,14 @@ public class TicTacToe {
    */
   private Integer[][] playArea;
 
+
+  /**
+   * Keeps track of the clicks.
+   * If reached 9
+   */
+  private int clicks;
+
+
   /**
    * Constructs the TicTacToe Object
    */
@@ -50,6 +58,9 @@ public class TicTacToe {
   }
 
   public String checkState(){
+
+
+    clicks++;
     /*
     While to go through each point the on array
     count the o or 1s on that pattern
@@ -89,6 +100,9 @@ public class TicTacToe {
         winningPatternFound = true;
       }
       whichPattern++;
+    }
+    if(outputOfCheckMethod.equals("none") && clicks == 9){
+      outputOfCheckMethod = "tie";
     }
 
     return outputOfCheckMethod;
@@ -265,6 +279,7 @@ public class TicTacToe {
    */
   public void resetPlayState(){
     playArea = new Integer[3][3];
+    clicks = 0;
   }
   /***
    * Gives the String representation of the 2D Array.
